@@ -1,0 +1,28 @@
+                                                           Treść zadania
+
+Komputer składa się z wielu komponentów, na potrzeby zadania zakładamy, że minimum potrzebne do działania to:
+
+procesor (taktowanie, np. 3000MHz, zakładana temperatura przy takim taktowaniu i maksymalna bezpieczna temperatura)
+pamięć ram (ilość pamięci i taktowanie, np. 4096MB 1066MHz, zakładana temperatura przy takim taktowaniu i maksymalna bezpieczna temperatura)
+dysk twardy (pojemność, np. 128GB)
+Każdy z powyższych elementów powinien posiadać też nazwę modelu, producenta i numer seryjny.
+
+Procesor i pamięci ram można dodatkowo podkręcać, co oznacza, że można zwiększać ich taktowanie (przykładowo jeśli nasz procesor miał taktowanie zegara na poziomie 2500MHz, to można go zwiększyć np. do 2800MHz). Analogicznie przy pamięciach ram.
+
+Temperatura procesora wzrasta o 10 stopni ze wzrostem taktowania o każde 100MHz, a pamięci ram o 15 stopni na każde 100MHz więcej.
+
+Problem polega na tym, że jeśli zbyt mocno podkręcimy procesor lub pamięci ram, to zbyt wysoka temperatura spowodowałaby ich spalenie.
+
+Z tego powodu komponenty te posiadają zabezpieczenie przed przegrzaniem. Jeśli spróbujemy podkręcić dany komponent do takiego poziomu, że maksymalna temperatura zostałaby przekroczona, to nie powinno się to udać (wyświetlamy ostrzeżenie).
+
+                                                             Zadanie
+
+Napisz program, który zasymuluje powyższy scenariusz.
+
+Stwórz klasy dla każdego z podzespołów (Processor, Memory, HardDrive) oraz abstrakcyjną klasę nadrzędną Component, która będzie zawierała cechy wspólne dla wszystkich podzespołów.
+
+Zdefiniuj interfejs Overclockable, który będzie wskazywał, że jakiś komponent da się podkręcać. W interfejsie tym powinna być metoda void overclock().
+
+Klasy Processor i Memory powinny implementować interfejs Overclockable oraz nadpisywać jego metodę overclock() zgodnie z opisem zadania. Metoda ta powinna mieć zabezpieczenie i rzucać wyjątek w sytuacji, gdy podkręcenie procesora lub pamięci spowodowałoby ich spalenie. Jeżeli uznasz za stosowne, to możesz dodać także dodatkowe klasy pośrednie.
+
+Utwórz przykładowy komputer, spróbuj podkręcić jego wybrane komponenty do nieprawidłowego stanu. Obsłuż wszystkie możliwe wyjątki w bloku try-catch. Możesz wprowadzić do rozwiązania dodatkowe elementy, usunąć lub dodać niektóre klasy i interfejsy, które uznasz za stosowne.
